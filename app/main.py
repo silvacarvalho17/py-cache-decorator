@@ -26,7 +26,7 @@ def cache(func: Callable) -> Callable:
 def long_time_func(
     first_number: int,
     second_number: int,
-    third_number: int
+    third_number: int,
 ) -> int:
     return (
         first_number ** second_number + third_number
@@ -35,9 +35,9 @@ def long_time_func(
 
 @cache
 def long_time_func_2(
-    numbers_tuple: tuple,
-    power: int
-) -> list:
+    numbers_tuple: tuple[int, ...],
+    power: int,
+) -> list[int]:
     return [
         number ** power
         for number in numbers_tuple
